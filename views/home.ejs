@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+
+<h1>Welcome to URL Shortener</h1>
+
+<% if (data && data.length > 0) { %>
+    <% data.forEach(function(item) { %>
+        <div style="margin-bottom: 20px;">
+            <p><strong>Original URL:</strong> <%= item.url %></p>
+
+            <p>
+              <strong>Short URL:</strong>
+              <a href="/url/<%= item.shortId %>" target="_blank">
+                <%= item.shortId %>
+              </a>
+            </p>
+
+            <p><strong>Visits:</strong> <%= item.visitedCount %></p>
+        </div>
+        <hr>
+    <% }) %>
+<% } else { %>
+    <p>No URLs found</p>
+<% } %>
+
+</body>
+</html>
